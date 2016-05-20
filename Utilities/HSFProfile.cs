@@ -22,7 +22,7 @@ namespace Utilities
         }
 
         // Construcotrs
-
+        
         /// <summary>
         /// Creates a new empty profile
         /// </summary>

@@ -4,9 +4,9 @@ using Utilities;
 using System.Xml;
 
 namespace UtilitiesUnitTest
-{ 
-   [TestClass] 
-   public class UtilitiesTests
+{
+    [TestClass]
+    public class UtilitiesTests
     {
         [TestMethod]
         public void IntegratorTest()
@@ -78,6 +78,27 @@ namespace UtilitiesUnitTest
             Assert.AreEqual(7, c3.Helper.helperInt);
             Assert.AreNotEqual(c1.Num, c3.Num);
         }
+        [TestMethod]
+        public void TestCumProd1()
+        {
+            double[,] elements = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+            Matrix<double> A = new Matrix<double>(elements);
+
+            double[,] result = { { 1, 2, 3 }, { 4, 10, 18 }, { 28, 80, 162 } };
+            Matrix<double> R = new Matrix<double>(result);
+
+            Assert.AreEqual(R, Matrix<double>.Cumprod(A));
+        }
+
+        [TestMethod]
+        public void TestTrace()
+        {
+            double[,] elements = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+            Matrix<double> A = new Matrix<double>(elements);
+            int result = 34;
+
+            Assert.AreEqual(result, Matrix<double>.Trace(A));
+        }
     }
     [Serializable]
     public class TestCopyClass
@@ -100,6 +121,5 @@ namespace UtilitiesUnitTest
         public string helperString;
         public int helperInt;
     }
-
-} 
+}
   
